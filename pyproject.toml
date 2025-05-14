@@ -1,0 +1,43 @@
+[tool.poetry]
+name = "convfinqa"
+version = "0.1.0"
+description = "Financial Question-Answering System"
+authors = ["Bhaskar <bha6kar@gmail.com>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = ">3.10,<3.14"
+flask = "^2.2.3"
+transformers = "^4.28.1"
+torch = "^2.0.0"
+requests = "^2.28.2"
+uwsgi = "^2.0.21"
+sentencepiece = "^0.2.0"
+scikit-learn = "^1.6.1"
+accelerate = "^1.6.0"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.3.1"
+black = "^25.1.0"
+isort = "^6.0.1"
+pytest-cov = "^6.1.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+markers = [
+    "unit: marks tests as unit tests",
+    "integration: marks tests as integration tests requiring the API to be running",
+]
+
+[tool.coverage.run]
+omit = [
+    "src/main/train.py",
+    "src/main/evaluate.py",
+]

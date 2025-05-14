@@ -1,0 +1,22 @@
+data:
+  raw_train_path: src/data/raw/train.json
+model:
+  path: src/output/fin_qa_model
+  base_model: google/flan-t5-base
+  max_length: 512
+  max_train: 5000
+  training:
+    learning_rate: 5e-5
+    batch_size: 4
+    weight_decay: 0.01
+    save_steps: 500
+    eval_steps: 500
+    epochs: 5
+    save_total_limit: 3
+lookup:
+  lookup_path: src/data/processed/lookup_qa.json
+  finetune_path: src/data/processed/lookup_finetune_full.json
+  finetune_train_path: src/data/processed/lookup_finetune_train.json
+  finetune_test_path: src/data/processed/lookup_finetune_test.json
+log:
+  log_dir: src/output/logs
